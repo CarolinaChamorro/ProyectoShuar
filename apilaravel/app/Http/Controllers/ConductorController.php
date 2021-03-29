@@ -17,6 +17,8 @@ class ConductorController extends Controller
     {
         $conductor= Conductor::all();
         return $conductor;
+
+        
     }
 
     /**

@@ -45,7 +45,7 @@ class VehiculoController extends Controller
         $vehiculo->num_matricula=$request->num_matricula;
         $vehiculo->foto_vehiculo=$request->foto_vehiculo;
         $vehiculo->conductor_id=$request->conductor_id;
-        $vehiculo->tipo_vehiculo=$request->tipo_vehiculo;
+        $vehiculo->tipo_vehiculo_id=$request->tipo_vehiculo_id;
 
         if($vehiculo->save()){
             return new VehiculoResource($vehiculo);
