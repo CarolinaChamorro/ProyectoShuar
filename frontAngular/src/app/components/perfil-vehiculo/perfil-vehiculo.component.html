@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+<form (ngSubmit)="addData()">
+    <div class="form-group">
+      <label for="name">Num_placa</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.num_placa">
+    </div>
+    <div class="form-group">
+        <label for="name">Modelo</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.modelo">
+      </div>
+      <div class="form-group">
+        <label for="name">Marca</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.marca">
+      </div>
+      <div class="form-group">
+        <label for="name">Color</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.color">
+      </div>
+      <div class="form-group">
+        <label for="name">Num_matricula</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.num_matricula">
+      </div>
+      <div class="form-group">
+        <label for="name">Foto</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.foto_vehiculo">
+      </div>
+      <div class="form-group">
+        <label for="identification">Conductor</label>
+        <select type="text" name="identification" class="form-control" [(ngModel)]="vehiculos.conductor_id">
+          <option *ngFor="let conductor of conductor" value={{conductor.id}}>{{conductor.id}}</option>
+        </select>
+      </div >
+      <div class="form-group">
+        <label for="identification">Tipo</label>
+        <select type="text" name="identification" class="form-control" [(ngModel)]="vehiculos.tipo_vehiculo_id">
+          <option *ngFor="let tipo of tipo" value={{tipo.id}}>{{tipo.nombre_tipo}}</option>
+        </select>
+      </div >
+    <br>
+    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+       <th scope="col">id</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Color</th>
+        <th scope="col">Matricula</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Conductor</th>
+        <th scope="col">Tipo vehiculo</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehiculo of vehiculo">
+       <th scope="row">{{vehiculo.id}}</th>
+        <th scope="row">{{vehiculo.num_placa}}</th>
+        <th scope="row">{{vehiculo.modelo}}</th>
+        <th scope="row">{{vehiculo.marca}}</th>
+        <th scope="row">{{vehiculo.color}}</th>
+        <th scope="row">{{vehiculo.num_matricula}}</th>
+        <th scope="row">{{vehiculo.foto_vehiculo}}</th>
+        <th scope="row">{{vehiculo.conductor_id}}</th>
+        <th scope="row">{{vehiculo.tipo_vehiculo_id}}</th>
+        <td><button class="btn btn-danger" (click)="deleteData(vehiculo.id)">Eliminar</button></td>
+        <td><button class="btn btn-primary" routerLink="edit/{{vehiculo.id}}">Editar</button></td>
+      </tbody>
+    </table>

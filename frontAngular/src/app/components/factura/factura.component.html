@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+<form (ngSubmit)="addData()">
+    <div class="form-group">
+      <label for="name">Número de Factura</label>
+      <input type="text" name="name" class="form-control"  [(ngModel)]="facturas.num_factura" [(ngModel)]="valor" readonly>
+    </div>  
+    <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="text" name="fecha" class="form-control"  [(ngModel)]="facturas.fecha_elab"  [ngModel]="curDate | date:'yyyy-MM-dd'" readonly>
+      </div>
+    <br>
+    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+       <th scope="col">id</th>
+        <th scope="col">Número de Factura</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Cliente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of factura">
+       <th scope="row">{{factura.id}}</th>
+        <th scope="row">{{factura.num_factura}}</th>
+        <th scope="row">{{factura.fecha_elab}}</th>
+        <th scope="row">{{factura.cliente_id}}</th>
+        <td><button class="btn btn-danger" (click)="deleteData(factura.id)">Eliminar</button></td>
+      </tbody>
+    </table>

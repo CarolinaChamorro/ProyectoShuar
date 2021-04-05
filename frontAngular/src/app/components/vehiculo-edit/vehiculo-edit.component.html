@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+<form (ngSubmit)="updateVehiculo()">
+    <div class="form-group">
+      <label for="placa">Placa</label>
+      <input type="text" name="placa" class="form-control" [(ngModel)]="vehiculos.num_placa">
+    </div>
+    <div class="form-group">
+        <label for="model">Modelo</label>
+        <input type="text" name="model" class="form-control" [(ngModel)]="vehiculos.modelo">
+      </div>
+      <div class="form-group">
+        <label for="marca">Marca</label>
+        <input type="text" name="marca" class="form-control" [(ngModel)]="vehiculos.marca">
+      </div>
+      <div class="form-group">
+        <label for="name">Color</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.color">
+      </div>
+      <div class="form-group">
+        <label for="color">Matricula</label>
+        <input type="text" name="color" class="form-control" [(ngModel)]="vehiculos.num_matricula">
+      </div>
+      <div class="form-group">
+        <label for="foto">Foto</label>
+        <input type="text" name="foto" class="form-control" [(ngModel)]="vehiculos.foto_vehiculo">
+      </div>
+    <button class="btn btn-dark btn-sm mt-4">Actualizar</button>
+    <td><button class="btn btn-danger" routerLink="/vehiculo">regresar</button></td>
+  </form>

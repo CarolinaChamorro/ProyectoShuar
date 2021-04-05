@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="asociado.component.css">
+</head>
+<body>
+    
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h3 class="mb-5 text-center heading">Completar perfil </h3>
+                    <form [formGroup]="AsociadoForm" (ngSubmit)="guardarAsociado(AsociadoForm.value)">
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Número de identificación</label> 
+                            <input type="text" id="num_identificacion" placeholder="Ingrese su RISE/RUC" class="form-control" formControlName="num_identificacion"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Nombre de la empresa</label> 
+                            <input type="text" id="nombre_empresa" placeholder="Ingrese el nombre de la empresa" class="form-control" formControlName="nombre_empresa"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Actividad comercial</label> 
+                            <input type="text" id="actividad_comercial" placeholder="Ingrese su actividad comercial" class="form-control" formControlName="actividad_comercial"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Dirección</label> 
+                            <input type="text" id="direccion" placeholder="Ingrese su direccion domiciliaria" class="form-control" formControlName="direccion"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Zona</label> 
+                            <input type="text" id="zona" placeholder="Ingrese la zona de su domicilio" class="form-control" formControlName="zona"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Foto</label> 
+                            <input type="text" id="foto_asociado" placeholder="Ingrese la zona de su domicilio" class="form-control" formControlName="foto_asociado"> 
+                        </div>
+                        <div class="form-group">
+                            <label for="identification">Servicio</label>
+                            <select type="text" name="identification" class="form-control"  formControlName="servicio_id">
+                              <option *ngFor="let servicio of servicio" value={{servicio.id}}>{{servicio.nombre}}</option>
+                            </select>
+                          </div >
+                        
+                        <div class="row justify-content-center my-3 px-3"> 
+                            <button type="submit" class="btn-block btn-color">Guardar</button> 
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

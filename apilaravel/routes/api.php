@@ -37,6 +37,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //User
 Route::get('/users',[UserController::class, 'index']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 //Asociado
 Route::get('/asociado',[AsociadoController::class, 'index']);
@@ -91,7 +92,7 @@ Route::delete('/factura/{id}', [FacturaController::class, 'destroy']);
 //Producto
 Route::get('/producto',[ProductoController::class, 'index']);
 Route::post('/producto/create', [ProductoController::class, 'store']);
-Route::get('/producto/{id}', [ProductoController::class, 'show']);
+Route::get('/producto/{id}', [ProductoController::class, 'edit']);
 Route::put('/producto/{id}',[ProductoController::class, 'update']);
 Route::delete('/producto/{id}', [ProductoController::class, 'destroy']);
 
@@ -112,6 +113,6 @@ Route::delete('/tipo/vehiculo/{id}', [TipoVehiculoController::class, 'destroy'])
 //Vehiculo
 Route::get('/vehiculo',[VehiculoController::class, 'index']);
 Route::post('/vehiculo/create', [VehiculoController::class, 'store']);
-Route::get('/vehiculo/{id}', [VehiculoController::class, 'show']);
+Route::get('/vehiculo/{id}', [VehiculoController::class, 'edit']);
 Route::put('/vehiculo/{id}',[VehiculoController::class, 'update']);
 Route::delete('/vehiculo/{id}', [VehiculoController::class, 'destroy']);

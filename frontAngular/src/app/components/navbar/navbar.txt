@@ -1,0 +1,13 @@
+ <div *ngIf="usuario.id===conductor.user_id && usuarioId==usuario.id && conductorId==conductor.id">
+    <a routerLink='/perfil/vehiculo' (click)="Vehiculo()" class="w3-bar-item w3-button">Vehículo</a>
+    <!-- <a routerLink='/carrito' (click)="Carrito()" class="w3-bar-item w3-button">Carrito de compras</a>
+    <a routerLink='/pedidos' (click)="Pedido()" class="w3-bar-item w3-button">Pedidos</a> -->
+    <a routerLink='/home' (click)="onLogaut()" class="w3-bar-item w3-button">Cerrar sesión</a>
+  </div>
+  <div *ngIf="usuario.id===cliente.user_id && usuarioId==usuario.id && clienteId==cliente.id">
+    <a routerLink='/factura' (click)="Factura()" class="w3-bar-item w3-button">Factura</a>
+
+    <!-- <a routerLink='/carrito' (click)="Carrito()" class="w3-bar-item w3-button">Carrito de compras</a>
+    <a routerLink='/pedidos' (click)="Pedido()" class="w3-bar-item w3-button">Pedidos</a> -->
+    <a routerLink='/home' (click)="onLogaut()" class="w3-bar-item w3-button">Cerrar sesión</a>
+  </div>

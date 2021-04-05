@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="conductor.component.css">
+</head>
+<body>
+    
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h3 class="mb-5 text-center heading">Completar perfil </h3>
+                    <form [formGroup]="ConductorForm" (ngSubmit)="guardarConductor(ConductorForm.value)">
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Cédula</label> 
+                            <input type="text" id="cedula" placeholder="Ingrese su número de CI" class="form-control" formControlName="cedula"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Tipo de licencia</label> 
+                            <input type="text" id="tipo_licencia" placeholder="Ingrese su tipo de licencia" class="form-control" formControlName="tipo_licencia"> 
+                        </div>
+                       
+                        <div class="row justify-content-center my-3 px-3"> 
+                            <button type="submit" class="btn-block btn-color">Guardar</button> 
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

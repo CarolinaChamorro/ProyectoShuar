@@ -72,7 +72,8 @@ class VehiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vehiculo = Vehiculo::find($id);
+      return $vehiculo;
     }
 
     /**

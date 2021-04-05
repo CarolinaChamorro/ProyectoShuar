@@ -23,7 +23,7 @@ class ServicioFactory extends Factory
     {
         return [
             'nombre'=>$this->faker->word,
-            'imagen'=>$this->faker->imageUrl($width = 640, $height = 480),
+            //'imagen'=>$this->faker->imageUrl($width = 640, $height = 480),
             'estado'=>$this->faker->word,
             
         ];

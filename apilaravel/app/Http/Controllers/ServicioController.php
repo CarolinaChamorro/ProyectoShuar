@@ -39,7 +39,7 @@ class ServicioController extends Controller
     {
         $servicio= new Servicio();
         $servicio->nombre=$request->nombre;
-        $servicio->imagen=$request->imagen;
+        //$servicio->imagen=$request->imagen;
         $servicio->estado=$request->estado;
         if($servicio->save()){
             return new ServicioResource($servicio);
@@ -80,7 +80,7 @@ class ServicioController extends Controller
     {
         $servicio = Servicio::findOrFail($id);
         $servicio->nombre=$request->nombre;
-        $servicio->imagen=$request->imagen;
+        //$servicio->imagen=$request->imagen;
         $servicio->estado=$request->estado;
         if($servicio->save()){
             return new ServicioResource($servicio);

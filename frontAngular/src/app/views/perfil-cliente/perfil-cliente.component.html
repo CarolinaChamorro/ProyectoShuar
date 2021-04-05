@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<br><br><br>
+<section id="work" class="portfolio-mf sect-pt4 route m-t-40 container">
+	<div class="mb-4 text-center">
+		<h2 class="title-a">
+			Perfil Cliente
+		</h2>
+		<div class="line-mf"></div>
+	</div>
+    
+<div *ngFor="let user of users">
+    <div *ngFor="let cliente of clientes">
+    <div *ngIf="user.id===cliente.user_id && clienteData==cliente.id && userData==user.id">
+<!-- Datos de usuario -->
+        <div class="card">
+            <div class="card-header text-center">
+                <h2 class="text-info">{{user.name}}</h2>
+                <h3 class="text-info">{{user.email}}</h3>
+            </div>
+        </div>
+        <!-- Datos de asociado -->
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="text-info">Perfil</h3>
+            </div>
+            <div class="card-body text-center">
+                <div class="thumbnail" style="align-content: center">
+                   Cédula: {{cliente.cedula}}
+                </div>
+                <div class="text-primary">
+                   Teléfono: {{cliente.telefono}}
+                </div>
+                <div class="pb-1">
+                    Dirección: {{cliente.direccion}}
+                </div>
+                <div class=" text-primary">
+                   Número de casa: {{cliente.numero_casa}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+</div>
+</section>
+

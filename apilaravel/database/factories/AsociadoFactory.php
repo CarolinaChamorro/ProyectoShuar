@@ -30,7 +30,7 @@ class AsociadoFactory extends Factory
             'zona'=>$this->faker->timezone,
             'rol'   =>$this->faker->jobTitle,
             'user_id' => random_int(1, 5),
-            'servicio_id' => random_int(1, 5),
+            'servicio_id' => random_int(1, 3),
         ];
     }
 }

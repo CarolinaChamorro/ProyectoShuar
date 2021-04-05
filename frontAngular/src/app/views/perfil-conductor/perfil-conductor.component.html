@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<br><br><br>
+<section id="work" class="portfolio-mf sect-pt4 route m-t-40 container">
+	<div class="mb-4 text-center">
+		<h2 class="title-a">
+			Perfil Conductor
+		</h2>
+		<div class="line-mf"></div>
+	</div>
+    
+<div *ngFor="let user of users">
+    <div *ngFor="let conductor of conductores">
+    <div *ngFor="let vehiculo of vehiculos">
+        <div *ngIf="user.id===conductor.user_id && conductorData==conductor.id && userData==user.id && vehiculo.conductor_id==conductor.id && vehiculo.conductor_id==conductorData">
+            <!-- Datos de usuario -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2 class="text-info">{{user.name}}</h2>
+                            <h3 class="text-info">{{user.email}}</h3>
+                        </div>
+                    </div>
+                    <!-- Datos de asociado -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3 class="text-info">Perfil</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="thumbnail" style="align-content: center">
+                               Cédula: {{conductor.cedula}}
+                            </div>
+                            <div class="text-primary">
+                                Tipo de licencia: {{conductor.tipo_licencia}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Datos vehiculo -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3 class="text-info">Vehículo</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="thumbnail" style="align-content: center">
+                                {{vehiculo.foto_vehiculo}}
+                                <!-- <a href="/imagenes/asociados/{{foto_asociado}}">
+                                    <img src="/imagenes/asociados/{{foto_asociado}}" name="foto_asociado" height="150" width="150" class="rounded-circle"
+                                        asp-append-version="true" />
+                                </a> -->
+                            </div>
+                            <div class="text-primary">
+                               Número de placa: {{vehiculo.num_placa}}
+                            </div>
+                            <div class="text-primary">
+                                Número de matrícula: {{vehiculo.num_matricula}}
+                            </div>
+                            <div class="text-primary">
+                                Modelo: {{vehiculo.modelo}}
+                            </div>
+                            <div class="text-primary">
+                               Marca: {{vehiculo.marca}}
+                            </div>
+                            <div class="text-primary">
+                               Color: {{vehiculo.color}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </div>
+</div>
+</section>
+
