@@ -27,7 +27,7 @@ class ClienteFactory extends Factory
             'direccion'=>$this->faker->address,
             'numero_casa'=>$this->faker->buildingNumber,   
             'rol'   =>$this->faker->jobTitle,
-            'user_id' => random_int(1, 5),
+            'user_id' => random_int(1, 3),
         ];
     }
 }

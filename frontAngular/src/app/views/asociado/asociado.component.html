@@ -14,40 +14,43 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h3 class="mb-5 text-center heading">Completar perfil </h3>
-                    <form [formGroup]="AsociadoForm" (ngSubmit)="guardarAsociado(AsociadoForm.value)">
+                    <form (ngSubmit)="guardarAsociado()">
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Número de identificación</label> 
-                            <input type="text" id="num_identificacion" placeholder="Ingrese su RISE/RUC" class="form-control" formControlName="num_identificacion"> 
+                            <input type="text" name="num_identificacion" placeholder="Ingrese su RISE/RUC" class="form-control" [(ngModel)]='asociado.num_identificacion'> 
                         </div>
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Nombre de la empresa</label> 
-                            <input type="text" id="nombre_empresa" placeholder="Ingrese el nombre de la empresa" class="form-control" formControlName="nombre_empresa"> 
+                            <input type="text" name="nombre_empresa" placeholder="Ingrese el nombre de la empresa" class="form-control" [(ngModel)]="asociado.nombre_empresa"> 
                         </div>
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Actividad comercial</label> 
-                            <input type="text" id="actividad_comercial" placeholder="Ingrese su actividad comercial" class="form-control" formControlName="actividad_comercial"> 
+                            <input type="text" name="actividad_comercial" placeholder="Ingrese su actividad comercial" class="form-control" [(ngModel)]="asociado.actividad_comercial"> 
                         </div>
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Dirección</label> 
-                            <input type="text" id="direccion" placeholder="Ingrese su direccion domiciliaria" class="form-control" formControlName="direccion"> 
+                            <input type="text" name="direccion" placeholder="Ingrese su direccion domiciliaria" class="form-control" [(ngModel)]="asociado.direccion"> 
                         </div>
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Zona</label> 
-                            <input type="text" id="zona" placeholder="Ingrese la zona de su domicilio" class="form-control" formControlName="zona"> 
+                            <input type="text" name="zona" placeholder="Ingrese la zona de su domicilio" class="form-control" [(ngModel)]="asociado.zona"> 
                         </div>
                         <div class="form-group"> 
                             <label class="form-control-label text-muted">Foto</label> 
-                            <input type="text" id="foto_asociado" placeholder="Ingrese la zona de su domicilio" class="form-control" formControlName="foto_asociado"> 
+                            <input type="file"  (change)="capturarFile($event)" name="file" class="form-control" [(ngModel)]="asociado.foto_asociado"> 
                         </div>
+                        <div *ngIf = "previsualizacion">
+                            <img [src] = "previsualizacion" alt = "">
+                          </div>
                         <div class="form-group">
                             <label for="identification">Servicio</label>
-                            <select type="text" name="identification" class="form-control"  formControlName="servicio_id">
+                            <select type="text" name="identification" class="form-control"  [(ngModel)]="asociado.servicio_id">
                               <option *ngFor="let servicio of servicio" value={{servicio.id}}>{{servicio.nombre}}</option>
                             </select>
                           </div >
                         
                         <div class="row justify-content-center my-3 px-3"> 
-                            <button type="submit" class="btn-block btn-color">Guardar</button> 
+                            <button class="btn-block btn-color">Guardar</button> 
                         </div>
                     </form>    
                 </div>
@@ -56,4 +59,3 @@
     </div>
 </body>
 </html>
-

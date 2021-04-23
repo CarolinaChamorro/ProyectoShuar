@@ -24,7 +24,7 @@ class DetalleRutaFactory extends Factory
         return [
             'longitud'=>$this->faker->longitude($min = -180, $max = 180),
             'latitud'=>$this->faker->latitude($min = -90, $max = 90),
-            'asociado_id' => random_int(1, 5),
+            'asociado_id' => random_int(1, 3),
         ];
     }
 }

@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<br>
+<h1 class="text-center" style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Editar perfil conductor</h1>
+<div class="container">
+  <form (ngSubmit)="UpdateConductor()">
+    <div class="form-group" style="margin-right: 50%;">
+        <label for="name">Cédula</label>
+        <input type="text" name="cedula" class="form-control" [(ngModel)]="conductor.cedula">
+      </div>
+      <div class="form-group" style="margin-right: 50%;">
+        <label for="name">Tipo de licencia</label>
+        <input type="text" name="tipo_licencia" class="form-control" [(ngModel)]="conductor.tipo_licencia">
+      </div>
+      <button class="btn btn-dark mt-4 mr-2">Actualizar</button>
+    <button class="btn btn-danger mt-4 ml-2" routerLink="/perfil/conductor">Regresar</button>
+</form>
+</div>

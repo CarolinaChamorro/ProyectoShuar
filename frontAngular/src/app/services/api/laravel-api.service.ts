@@ -28,7 +28,7 @@ export class LaravelApiService {
     return this.http.post<Response>(url,form)
   }
   
-
+    //Get all users and rols
   getAllUsers():Observable<any>{
     return this.http.get(`${this._Api}/users`);
   }
@@ -43,6 +43,19 @@ export class LaravelApiService {
   getAllClientes():Observable<any>{
     return this.http.get(`${this._Api}/cliente`);
   }
-  
+
+  //get by one user and rols
+  getUserById(id: string) {
+    return this.http.get(`${this._Api}/users/${id}`)
+  } 
+  getAsociadoById(id: string) {
+    return this.http.get(`${this._Api}/asociado/${id}`)
+  } 
+  getClienteById(id: string) {
+    return this.http.get(`${this._Api}/cliente/mostrar/${id}`)
+  } 
+  getConductorById(id: string) {
+    return this.http.get(`${this._Api}/conductor/${id}`)
+  } 
 
 }

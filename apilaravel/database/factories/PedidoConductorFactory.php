@@ -23,8 +23,8 @@ class PedidoConductorFactory extends Factory
     {
         return [
             'estado'=>$this->faker->word,
-            'conductor_id' => random_int(1, 5),
-            'detalle_factura_id' => random_int(1, 5),
+            'conductor_id' => random_int(1, 3),
+            'detalle_factura_id' => random_int(1, 3),
         ];
     }
 }

@@ -29,7 +29,7 @@ class AsociadoFactory extends Factory
             'foto_asociado'=>$this->faker->imageUrl($width = 640, $height = 480),
             'zona'=>$this->faker->timezone,
             'rol'   =>$this->faker->jobTitle,
-            'user_id' => random_int(1, 5),
+            'user_id' => random_int(1, 3),
             'servicio_id' => random_int(1, 3),
         ];
     }

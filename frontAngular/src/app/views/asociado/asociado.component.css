@@ -238,7 +238,7 @@
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-image: linear-gradient(to right, #D500F9, #FFD54F);
+    background-image: linear-gradient(to right,  #86312e, #808382);
     background-repeat: no-repeat
 }
 
@@ -261,7 +261,7 @@ textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #D500F9 !important;
+    border: 1px solid #a03d5ba9 !important;
     outline-width: 0;
     font-weight: 400
 }
@@ -310,7 +310,7 @@ button:focus {
 .btn-color {
     border-radius: 50px;
     color: #fff;
-    background-image: linear-gradient(to right, #FFD54F, #D500F9);
+    background-image: linear-gradient(to right,  #fc2c77 , #6c4079 );
     padding: 15px;
     cursor: pointer;
     border: none !important;
@@ -319,7 +319,7 @@ button:focus {
 
 .btn-color:hover {
     color: #fff;
-    background-image: linear-gradient(to right, #D500F9, #FFD54F)
+    background-image: linear-gradient(to right, #6c4079, #fc2c77 )
 }
 
 .btn-white {
@@ -382,4 +382,10 @@ a:hover {
         margin-top: 50px !important;
         margin-bottom: 50px !important
     }
+}
+
+img{
+  margin-top: 15px;;
+  width: 350px;
+  margin-bottom: 10px;
 }

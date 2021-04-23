@@ -14,8 +14,8 @@ class DetalleFactura extends Model
         return $this-> belongsToMany(Producto::class)->withTimeStamps();
     }
     
-    public function factura (){
-        return $this->belongsTo(Factura::class)->withTimeStamps();
+    public function cliente(){
+        return $this->belongsTo(Cliente::class)->withTimeStamps();
     }
 
     public function pedidoConductor (){

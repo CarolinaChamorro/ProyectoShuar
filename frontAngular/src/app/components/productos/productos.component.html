@@ -1,49 +1,53 @@
 <app-navbar></app-navbar>
-<br><br><br><br>
+<br>
+<h1 class="text-center" style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Productos</h1>
 <form (ngSubmit)="addData()" class="container">
-    <div class="form-group ">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" class="form-control" [(ngModel)]="productos.nombre">
-      </div>
-    <div class="form-group">
-      <label for="name">Detalle</label>
-      <input type="text" name="name" class="form-control" [(ngModel)]="productos.detalle">
+  <div class="form-group" style="margin-right: 50%;">
+      <label for="name">Nombre</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="producto.nombre">
     </div>
-    <div class="form-group">
-        <label for="name">Precio</label>
-        <input type="text" name="name" class="form-control" [(ngModel)]="productos.precio">
+  <div class="form-group" style="margin-right: 50%;">
+    <label for="name">Detalle</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="producto.detalle">
+  </div>
+  <div class="form-group" style="margin-right: 50%;">
+      <label for="name">Precio</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="producto.precio">
+    </div>
+  <div class="form-group" style="margin-right: 50%;">
+      <label for="name">Foto</label>
+      <input type="file" (change)="capturarFile($event)" name="file" class="form-control" [(ngModel)]="producto.foto">
+    </div>
+    <div *ngIf = "previsualizacion">
+      <img [src] = "previsualizacion" alt = "">
+    </div>
+    
+  <button class="btn btn-dark mt-4 mb-4">Registrar</button>
+</form>
+<div class="container">
+  <div *ngFor="let producto of productos;let i=index">
+    <div *ngIf="producto.asociado_id==asociadoData">
+      <table class="table">
+        <thead>
+          <tr>
+           <th scope="col">N°</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Detalle</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+           <td scope="row">{{i+1}}</td>
+            <td scope="row">{{producto.nombre}}</td>
+            <td scope="row">{{producto.detalle}}</td>
+            <td scope="row">{{producto.precio}}</td>
+            <td><img src='http://127.0.0.1:8000/storage/{{producto.foto}}' alt=""></td>
+            <td><button class="btn btn-danger mr-2" (click)="deleteData(producto.id)">Eliminar</button>
+              <button class="btn btn-primary ml-2" routerLink="edit/{{producto.id}}">Editar</button></td> 
+          </tbody>
+        </table>
+        </div>
       </div>
-    <div class="form-group">
-        <label for="name">Foto</label>
-        <input type="text" name="name" class="form-control" [(ngModel)]="productos.foto">
-      </div>
-      
-      <br>
-    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
-  </form>
- <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-       <th scope="col">id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Detalle</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Foto</th>
-        <th scope="col">Asociado_id</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let producto of producto">
-       <th scope="row">{{producto.id}}</th>
-        <th scope="row">{{producto.nombre}}</th>
-        <th scope="row">{{producto.detalle}}</th>
-        <th scope="row">{{producto.precio}}</th>
-        <th scope="row">{{producto.foto}}</th>
-        <th scope="row">{{producto.asociado_id}}</th>
-        <td><button class="btn btn-danger" (click)="deleteData(producto.id)">Eliminar</button></td>
-        <td><button class="btn btn-primary" routerLink="edit/{{producto.id}}">Editar</button></td> 
-      </tbody>
-    </table>
  </div>

@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
@@ -21,6 +24,15 @@ import { ProductoEditComponent } from './components/producto-edit/producto-edit.
 import { PerfilAsociadoComponent } from './views/perfil-asociado/perfil-asociado.component';
 import { PerfilClienteComponent } from './views/perfil-cliente/perfil-cliente.component';
 import { PerfilConductorComponent } from './views/perfil-conductor/perfil-conductor.component';
+import { CatalogoClienteComponent } from './views/catalogo-cliente/catalogo-cliente.component';
+import { CatalogoAsociadoComponent } from './views/catalogo-asociado/catalogo-asociado.component';
+import { CarritoComponent } from './views/carrito/carrito.component';
+import { PedidosAsociadoComponent } from './views/pedidos-asociado/pedidos-asociado.component';
+import { VerpedidoComponent } from './views/pedidos-asociado/verpedido/verpedido.component';
+import { VerpedidoRealizadoComponent } from './views/pedidos-asociado/verpedido-realizado/verpedido-realizado.component';
+import { ConductorEditComponent } from './views/conductor-edit/conductor-edit.component';
+import { ClienteEditComponent } from './views/cliente-edit/cliente-edit.component';
+import { AsociadoEditComponent } from './components/asociado-edit/asociado-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +53,16 @@ import { PerfilConductorComponent } from './views/perfil-conductor/perfil-conduc
     ProductoEditComponent,
     PerfilAsociadoComponent,
     PerfilClienteComponent,
-    PerfilConductorComponent
+    PerfilConductorComponent,
+    CatalogoClienteComponent,
+    CatalogoAsociadoComponent,
+    CarritoComponent,
+    PedidosAsociadoComponent,
+    VerpedidoComponent,
+    VerpedidoRealizadoComponent,
+    ConductorEditComponent,
+    ClienteEditComponent,
+    AsociadoEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +70,9 @@ import { PerfilConductorComponent } from './views/perfil-conductor/perfil-conduc
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

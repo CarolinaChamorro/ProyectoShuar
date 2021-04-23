@@ -1,32 +1,66 @@
 <app-navbar></app-navbar>
 <br><br><br><br>
 <form (ngSubmit)="addData()">
-    <div class="form-group">
-      <label for="name">Número de Factura</label>
-      <input type="text" name="name" class="form-control"  [(ngModel)]="facturas.num_factura" [(ngModel)]="valor" readonly>
-    </div>  
-    <div class="form-group">
-        <label for="fecha">Fecha</label>
-        <input type="text" name="fecha" class="form-control"  [(ngModel)]="facturas.fecha_elab"  [ngModel]="curDate | date:'yyyy-MM-dd'" readonly>
-      </div>
+    <div class="container">
+      <div class="col-xs-2" style="margin-right: 85%;">
+        <label for="name">Número de Factura</label>
+        <input type="text" name="name" class="form-control"  [(ngModel)]="facturas.num_factura" [(ngModel)]="valor" readonly>
+      </div>  
+      <div class="col-xs-2" style="margin-right: 85%;">
+          <label for="fecha">Fecha</label>
+          <input type="text" name="fecha" class="form-control"  [(ngModel)]="facturas.fecha_elab"  [ngModel]="curDate | date:'yyyy-MM-dd'" readonly>
+        </div>
+    </div>
     <br>
-    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+    <div class="container">
+      <div class="card" >
+          <div class="card-header" *ngFor="let item of pedidoUserProducto">
+            <h5 class="card-title">
+              Pedido de {{item.name}} 
+            </h5>
+          </div>
+          <div class="card-body">
+            <div style="margin: 1cm;" *ngFor="let item of pedidoUserProducto">
+              <p class="card-title"> Orden a nombre de {{item.name}} </p>
+              <p class="card-text"> Cedula: {{item.cedula}} </p>
+              <p class="card-text">Correo: {{item.email}} </p>
+              <p class="card-text">Teléfono: {{item.telefono}} </p>
+              <p class="card-text">Dirección: {{item.direccion}}</p>
+            </div>
+          </div>
+          <div class="card-footer">
+              <h5 class="card-body">Detalles Pedidos</h5>
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Productos</th>
+                        <th scope="col">Precio U.</th>
+                        <th scope="col">Subtotal</th>
+                      </tr> 
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let i of pedidoAgregado;let j = index" >
+                        <th scope="row">{{j+1}}</th>
+                        <td>{{i.cantidad}} </td>
+                        <td>{{i.nombre}}</td>
+                        <td>{{i.precio}}</td>
+                        <td>$ {{subtotal[j]}}</td>
+                      </tr>
+                      <tr>
+                        <th colspan="3"></th>
+                        <th >Total</th>
+                        <td>$ {{total}} </td>
+                      </tr>
+                    </tbody>
+              </table>    
+              <!-- <a (click)="confirmarPedido()" class="btn btn-primary" >Confirmar Pedido</a> -->
+              <button class="btn btn-dark ">Confirmar pedido</button>
+              <button class="btn btn-danger ml-2" routerLink="/carrito">Regresar</button>
+               
+          </div>
+        </div>
+  </div>
   </form>
-  <table class="table">
-    <thead>
-      <tr>
-       <th scope="col">id</th>
-        <th scope="col">Número de Factura</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Cliente</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let factura of factura">
-       <th scope="row">{{factura.id}}</th>
-        <th scope="row">{{factura.num_factura}}</th>
-        <th scope="row">{{factura.fecha_elab}}</th>
-        <th scope="row">{{factura.cliente_id}}</th>
-        <td><button class="btn btn-danger" (click)="deleteData(factura.id)">Eliminar</button></td>
-      </tbody>
-    </table>
+ 

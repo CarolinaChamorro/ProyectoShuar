@@ -28,7 +28,7 @@ class VehiculoFactory extends Factory
             'color'=>$this->faker->safeColorName,
             'num_matricula'=>$this->faker->imageUrl($width = 640, $height = 480),
             'foto_vehiculo'=>$this->faker->imageUrl($width = 640, $height = 480),
-            'conductor_id' => random_int(1, 5),
+            'conductor_id' => random_int(1, 3),
             'tipo_vehiculo_id' => random_int(1, 3),
 
         ];

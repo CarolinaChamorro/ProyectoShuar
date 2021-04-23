@@ -5,6 +5,7 @@ import {LaravelApiService} from '../../services/api/laravel-api.service';
 import {Router} from '@angular/router'
 import { Login } from '../../models/login.interface';
 import { Response} from '../../models/response.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     password : new FormControl('', Validators.required)
   })
 
-  constructor(private api:LaravelApiService, private router:Router) { }
+  constructor(private api:LaravelApiService, private router:Router, private toastr:ToastrService) { }
 
   errorStatus:boolean = false
    users:any;
@@ -87,7 +88,7 @@ user={
            for (const iteratorA of this.asociados) {
             if (usuario.id===iteratorA.user_id && usuario.id===dataResponse.data.id) {
               localStorage.setItem("asociado_id", iteratorA.id);
-              this.router.navigate(['perfil/asociado']);
+              this.router.navigate(['catalogo/asociado']);
               console.log(iteratorA);
             }
               
@@ -103,7 +104,7 @@ user={
         for (const iteratorCli of this.clientes) {
           if(usuario.id===iteratorCli.user_id && usuario.id===dataResponse.data.id){
             localStorage.setItem("cliente_id", iteratorCli.id);
-            this.router.navigate(['perfil/cliente']);
+            this.router.navigate(['catalogo/cliente']);
            console.log(iteratorCli);
          }
        }
@@ -111,6 +112,12 @@ user={
 
       }else{
         this.errorStatus=true;
+        
+    err => {
+      this.toastr.warning('Intentalo más tarde', 'Producto error', {
+        positionClass: 'toast-bottom-left'
+      })
+    }
       }
       console.log(data);
     });

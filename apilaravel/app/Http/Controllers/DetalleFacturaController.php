@@ -40,7 +40,7 @@ class DetalleFacturaController extends Controller
         $detalle_factura=new DetalleFactura();
         $detalle_factura->cantidad=$request->cantidad;
         $detalle_factura->estado=$request->estado;
-        $detalle_factura->factura_id=$request->factura_id;
+        $detalle_factura->cliente_id=$request->cliente_id;
         $detalle_factura->producto_id=$request->producto_id;
 
         if($detalle_factura->save()){
@@ -58,6 +58,15 @@ class DetalleFacturaController extends Controller
     {
         $detalle_factura = DetalleFactura::findOrFail($id);
         return new DetalleFacturaResource($detalle_factura);
+    }
+
+    public function getDetallesPedido($id)
+    {
+        $detalle_factura = DetalleFactura::where("detalle_facturas.cliente_id", "=",$id)
+        ->select("detalle_facturas.id","detalle_facturas.estado", "detalle_facturas.cantidad", "productos.nombre","productos.precio", "productos.asociado_id")
+        ->join("productos", "productos.id", "=", "detalle_facturas.producto_id")
+        ->get();
+        return $detalle_factura;
     }
 
     /**
@@ -81,7 +90,6 @@ class DetalleFacturaController extends Controller
     public function update(Request $request, $id)
     {
         $detalle_factura = DetalleFactura::findOrFail($id);
-        $detalle_factura->cantidad=$request->cantidad;
         $detalle_factura->estado=$request->estado;
         if($detalle_factura->save()){
             return new DetalleFacturaResource($detalle_factura);

@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="container mt-6">
+    <h1 class="text-center" style="margin-top: 75px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Información de los pedidos por enviar</h1>
+    <div style="text-align: center;" *ngIf="pedidoRealizado[0] === undefined; else Bloc">
+        <h2>No hay pedidos realizados</h2>
+    </div>
+    <ng-template #Bloc>
+    <table class="table table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Dirección</th>
+            </tr> 
+        </thead>
+        <tbody>
+                <tr *ngFor="let i of pedidoRealizado;let j = index" (click)="verPedidosRealizados(i.id)">
+                    <th scope="row">{{j+1}}</th>
+                    <td>{{i.cedula}} </td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.telefono}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+        </tbody>
+    </table>
+</ng-template>
+    <br><br>
+    <h1 class="text-center" style="margin-top: 75px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Información de pedidos realizados</h1>
+    <div style="text-align: center;" *ngIf="pedidoEnviado[0] === undefined; else Block">
+        <h2>No hay pedidos por enviar</h2>
+    </div>
+    
+    <ng-template #Block>
+    <table class="table table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Dirección</th>
+            </tr> 
+        </thead>
+        <tbody>
+                <tr *ngFor="let i of pedidoEnviado;let j = index" (click)="verPedidosEnviados(i.id)">
+                    <th scope="row">{{j+1}}</th>
+                    <td>{{i.cedula}} </td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.telefono}}</td>
+                    <td>{{i.direccion}}</td>
+                </tr>
+        </tbody>
+    </table>
+</ng-template>
+</div>
+

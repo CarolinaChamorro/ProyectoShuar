@@ -16,4 +16,8 @@ class Cliente extends Model
     public function factura(){
         return $this-> hasOne(Factura::class)->withTimeStamps();
     }
+    public function detalleFactura(){
+        return $this-> hasMany(DetalleFactura::class)->withTimeStamps();
+    }
+    
 }

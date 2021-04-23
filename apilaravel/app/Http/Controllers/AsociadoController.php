@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Asociado;
 use App\Http\Resources\AsociadoResource;
+use Illuminate\Support\Facades\Storage;
 
 class AsociadoController extends Controller
 {
@@ -37,20 +38,29 @@ class AsociadoController extends Controller
      */
     public function store(Request $request)
     {
+        $file=$request->file('archivo');
+        $ruta=$file->storeAs('img', $file->getClientOriginalName(),'public');
+        $dataAsociado=json_decode($request->asociado,true);
         $asociado= new Asociado();
-        $asociado->num_identificacion=$request->num_identificacion;
-        $asociado->nombre_empresa=$request->nombre_empresa;
-        $asociado->actividad_comercial=$request->actividad_comercial;
-        $asociado->direccion=$request->direccion;
-        $asociado->foto_asociado=$request->foto_asociado;
-        $asociado->zona=$request->zona;
-        $asociado->rol=$request->rol;
-        $asociado->user_id=$request->user_id;
-        $asociado->servicio_id=$request->servicio_id;
+        $asociado->num_identificacion=$dataAsociado['num_identificacion'];
+        $asociado->nombre_empresa=$dataAsociado['nombre_empresa'];
+        $asociado->actividad_comercial=$dataAsociado['actividad_comercial'];
+        $asociado->direccion=$dataAsociado['direccion'];
+        $asociado->foto_asociado=$ruta;
+        $asociado->zona=$dataAsociado['zona'];
+        $asociado->rol=$dataAsociado['rol'];
+        $asociado->user_id=$dataAsociado['user_id'];
+        $asociado->servicio_id=$dataAsociado['servicio_id'];
 
-        if($asociado->save()){
-            return new AsociadoResource($asociado);
-        }
+       
+        $asociado->save();
+        return response()->json([
+            'data'=> $asociado,
+            'msg' =>[
+                'summary'=>'Se creo correctamente',
+                'detail'=> 'esta bien'
+            ]
+            ],201);
     }
 
     /**
@@ -73,7 +83,8 @@ class AsociadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $asociado = Asociado::find($id);
+        return new AsociadoResource($asociado);
     }
 
     /**
@@ -86,14 +97,19 @@ class AsociadoController extends Controller
     public function update(Request $request, $id)
     {
         $asociado= Asociado::findOrFail($id);
-        $asociado->num_identificacion=$request->num_identificacion;
-        $asociado->nombre_empresa=$request->nombre_empresa;
-        $asociado->actividad_comercial=$request->actividad_comercial;
-        $asociado->direccion=$request->direccion;
-        $asociado->foto_asociado=$request->foto_asociado;
-        $asociado->zona=$request->zona;
-        $asociado->servicio_id=$request->servicio_id;
-
+        $dataAsociado=json_decode($request->asociado,true);
+        if ($asociado->foto_asociado != $dataAsociado['foto_asociado']){
+            Storage::delete($asociado->foto_asociado);
+            $file=$request->file('archivo');
+            $ruta=$file->storeAs('img',time() . $file->getClientOriginalName(),'public');
+            $asociado->foto_asociado=$ruta;
+        }
+        $asociado->num_identificacion=$dataAsociado['num_identificacion'];
+        $asociado->nombre_empresa=$dataAsociado['nombre_empresa'];
+        $asociado->actividad_comercial=$dataAsociado['actividad_comercial'];
+        $asociado->direccion=$dataAsociado['direccion'];
+        $asociado->zona=$dataAsociado['zona'];
+        $asociado->servicio_id=$dataAsociado['servicio_id'];
         if($asociado->save()){
             return new AsociadoResource($asociado);
         }

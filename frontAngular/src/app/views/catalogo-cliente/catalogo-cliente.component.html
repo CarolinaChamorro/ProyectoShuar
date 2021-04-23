@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<h1 class="text-center"
+    style="margin-top: 70px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">
+    Catálogo de productos</h1>
+<br>
+<div class="container"> 
+<div class="row">
+    <div class="col-3 ml-2">
+        <h2>Por asociados</h2>
+        <hr>
+        <div *ngFor="let item of asociados">
+            <div class="list-group">
+                <button type="button" id="miBoton" class="list-group-item list-group-item-action" class="list-group-item"
+                    (click)="asociado(item.id)">
+                    {{item.nombre_empresa}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-8" style="margin-left: 4rem;">
+        <button routerLink='/carrito' (click)="PostearPedido()" class="pedido">Añadir productos al carrito de compras
+        </button>
+        <div *ngFor="let item of asociados">
+            <div *ngIf="item.id == nombrEmpresa">
+               <h2>{{item.nombre_empresa}}</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div *ngIf="asociadoSinProductos && sinProductos != asociadoId; else Block">
+
+                <h3 class="text-center"
+                    style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">No
+                    hay productos de este asociado</h3>
+            </div>
+            <div *ngIf="asociadoId===undefined">
+                <h3 class="text-center"
+                    style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    Seleccione un asociado</h3>
+            </div>
+
+            <ng-template #Block>
+                <div class=" align-items-center justify-content-center">
+                    <div *ngFor="let key of productos">
+                        <div *ngIf="key.asociado_id==asociadoId">
+                            <div class="card mb-3" style="max-width: 700px; padding: 2rem;">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <img src='http://127.0.0.1:8000/storage/{{key.foto}}' alt="">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="font-weight: bold;font-size:large">
+                                                {{key.nombre}}
+                                            </h5>
+                                            <p class="card-text">Detalle: {{key.detalle}}</p>
+                                            <p class="card-text">Precio:$ {{key.precio}}</p>
+                                            <div class="fileContainer mb-2">
+                                                <button (click)="clickeado=true; mostrar=key.id"> Mostrar </button>
+                                            </div>
+    
+                                            <div *ngIf="clickeado && mostrar==key.id">
+                                                <div>
+                                                    <input type="number" [(ngModel)]='textoDeInput'>
+                                                    <p class="card-text">Cantidad:{{this.pedidos.cantidad}}</p>
+                                                    <button (click)="carrito(key.id,textoDeInput)"
+                                                        class="btn-primary mr-2 mb-2">Añadir</button>
+                                                </div>
+                                                <button (click)="clickeado=false"> Ocultar </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
+</div>

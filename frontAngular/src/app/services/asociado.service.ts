@@ -12,17 +12,16 @@ export class AsociadoService {
 
   constructor( private httpClient:HttpClient) { }
 
-crearAsociado(form:Asociado):Observable<Asociado>{
-    let url = `${this._Api}/asociado/create`
-    return this.httpClient.post<Asociado>(url, form)
+  crearAsociado(data: any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/asociado/create', data);
   }
 
   getAsociadoById(id: string) {
     return this.httpClient.get(`${this._Api}/asociado/${id}`)
   } 
 
-  updateAsociado(id: string, data: Asociado) {
-    return this.httpClient.put(`${this._Api}/asociado/${id}`, data);
+  updateAsociado(id: string, data: any) {
+    return this.httpClient.post(`${this._Api}/asociado/${id}`, data);
   }
 
   getServicios(): Observable<any>{
@@ -35,6 +34,10 @@ crearAsociado(form:Asociado):Observable<Asociado>{
 
   getAllUsers(): Observable<any>{
     return this.httpClient.get(`${this._Api}/users`);
+  }
+
+  getAllProducto(): Observable<any>{
+    return this.httpClient.get(`${this._Api}/producto`);
   }
   
 

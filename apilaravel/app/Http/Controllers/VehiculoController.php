@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehiculo;
 use App\Http\Resources\VehiculoResource;
+use Illuminate\Support\Facades\Storage;
 
 class VehiculoController extends Controller
 {
@@ -37,19 +38,27 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
+        $file=$request->file('archivo');
+        $ruta=$file->storeAs('img',$file->getClientOriginalName(),'public');
+        $dataVehiculo=json_decode($request->vehiculo, true);
         $vehiculo= new Vehiculo();
-        $vehiculo->num_placa=$request->num_placa;
-        $vehiculo->modelo=$request->modelo;
-        $vehiculo->marca=$request->marca;
-        $vehiculo->color=$request->color;
-        $vehiculo->num_matricula=$request->num_matricula;
-        $vehiculo->foto_vehiculo=$request->foto_vehiculo;
-        $vehiculo->conductor_id=$request->conductor_id;
-        $vehiculo->tipo_vehiculo_id=$request->tipo_vehiculo_id;
+        $vehiculo->num_placa=$dataVehiculo['num_placa'];
+        $vehiculo->modelo=$dataVehiculo['modelo'];
+        $vehiculo->marca=$dataVehiculo['marca'];
+        $vehiculo->color=$dataVehiculo['color'];
+        $vehiculo->num_matricula=$dataVehiculo['num_matricula'];
+        $vehiculo->foto_vehiculo=$ruta;
+        $vehiculo->conductor_id=$dataVehiculo['conductor_id'];
+        $vehiculo->tipo_vehiculo_id=$dataVehiculo['tipo_vehiculo_id'];
 
-        if($vehiculo->save()){
-            return new VehiculoResource($vehiculo);
-        }
+        $vehiculo->save();
+        return response()->json([
+            'data'=> $vehiculo,
+            'msg' =>[
+                'summary'=>'Se creo correctamente',
+                'detail'=> 'esta bien'
+            ]
+            ],201);
     }
 
     /**
@@ -86,12 +95,18 @@ class VehiculoController extends Controller
     public function update(Request $request, $id)
     {
         $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->num_placa=$request->num_placa;
-        $vehiculo->modelo=$request->modelo;
-        $vehiculo->marca=$request->marca;
-        $vehiculo->color=$request->color;
-        $vehiculo->num_matricula=$request->num_matricula;
-        $vehiculo->foto_vehiculo=$request->foto_vehiculo;
+        $dataVehiculo=json_decode($request->vehiculo, true);
+        if($vehiculo->foto_vehiculo != $dataVehiculo['foto_vehiculo']){
+            Storage::delete($vehiculo->foto_vehiculo);
+          $file=$request->file('archivo');
+          $ruta=$file->storeAs('img',$file->getClientOriginalName(),'public');
+          $vehiculo->foto_vehiculo=$ruta;
+        }
+        $vehiculo->num_placa=$dataVehiculo['num_placa'];
+        $vehiculo->modelo=$dataVehiculo['modelo'];
+        $vehiculo->marca=$dataVehiculo['marca'];
+        $vehiculo->color=$dataVehiculo['color'];
+        $vehiculo->num_matricula=$dataVehiculo['num_matricula'];
 
         if($vehiculo->save()){
             return new VehiculoResource($vehiculo);

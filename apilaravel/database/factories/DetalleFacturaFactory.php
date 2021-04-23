@@ -25,8 +25,8 @@ class DetalleFacturaFactory extends Factory
             
             'cantidad'=>$this->faker->randomDigit,
             'estado'=>$this->faker->word,  
-            'factura_id' => random_int(1, 5),
-            'producto_id' => random_int(1, 5),
+            'cliente_id' => random_int(1, 3),
+            'producto_id' => random_int(1, 3),
         ];
     }
 }

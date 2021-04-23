@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Conductor} from 'src/app/models/conductor.interface';
 import { ConductorService} from 'src/app/services/conductor.service';
 import { Driver } from '../../class/conductor';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-conductor',
@@ -20,7 +21,7 @@ export class ConductorComponent implements OnInit {
     user_id: new FormControl(localStorage.getItem('user_id'))
   })
   
-  constructor(private api:ConductorService, private router:Router) { }
+  constructor(private api:ConductorService, private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     
@@ -32,6 +33,10 @@ export class ConductorComponent implements OnInit {
       localStorage.setItem("conductor_id",dataConductor['data']['id'])
       this.router.navigate(['vehiculo'])
       console.log(dataConductor['data']['id']);
+    },err => {
+      this.toastr.warning('Intentalo más tarde', 'Error de servidor', {
+        positionClass: 'toast-bottom-left'
+      })
     })
   }
 

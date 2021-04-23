@@ -5,6 +5,7 @@ import { Registrarse } from '../../models/registrarse.interface';
 import {Response} from '../../models/response.interface';
 
 import {LaravelApiService} from '../../services/api/laravel-api.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrarse',
@@ -21,7 +22,7 @@ export class RegistrarseComponent implements OnInit {
    password : new FormControl('', Validators.required)
  })
 
- constructor(private api:LaravelApiService, private router:Router) { }
+ constructor(private api:LaravelApiService, private router:Router, private toastr:ToastrService) { }
 
  users={
    id:'',
@@ -50,8 +51,12 @@ export class RegistrarseComponent implements OnInit {
  
  registrarse(form:Registrarse){
    if(localStorage.getItem('user_id') != this.users.id){
-     //colocar un mensaje
-    console.log('ya existe usuario');
+     
+    err => {
+      this.toastr.warning('Intentalo más tarde', 'Producto error', {
+        positionClass: 'toast-bottom-left'
+      })
+    }
    }else{
     this.api.registerUser(form).subscribe(data => {
       let dataResponse:Response = data;
@@ -65,7 +70,13 @@ export class RegistrarseComponent implements OnInit {
       }
        if(dataResponse['error']['email'][0] != ''){
          //colocar un mensaje
-        console.log(dataResponse['error']['email'][0])
+        console.log(dataResponse['error']['email'][0]);
+        
+    err => {
+      this.toastr.warning('Verifica tu email', 'Email', {
+        positionClass: 'toast-bottom-left'
+      })
+    }
       }else{
         console.log(dataResponse);
       }

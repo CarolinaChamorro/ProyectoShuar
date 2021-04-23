@@ -1,0 +1,62 @@
+.color{
+    background-color: rgba(216, 85, 114, 0.863);
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+.sinColor{
+    background-color: rgba(255, 255, 255, 0.863);
+    text-align: center;
+    color:black;
+}
+.activado{
+    background-color: rgb(98, 170, 70);
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+
+.pedido{
+    margin-left: 90px;
+    margin-bottom: 30px;
+}
+.cartas {
+ 
+    display: grid;
+     
+    grid-template-columns: repeat(auto-fill, 18rem);
+     
+    grid-auto-rows: auto;
+     
+    grid-gap: 1rem;
+     
+    }
+     
+     
+    .carta {
+     
+    border: 2px solid #e7e7e7;
+     
+    border-radius: 4px;
+     
+    padding: .5rem;
+     
+    }
+
+    #miBoton { 
+        background: light-gray; 
+        color: black; 
+      } 
+      #miBoton:hover { 
+        background: blue; 
+        color: white; 
+      } 
+      #miBoton:active {  
+        background: gray; 
+        color: white; 
+      } 
+
+      img{
+        width:180px;
+        height:200px;
+        margin-right: 10px;
+        border-radius:150px;
+      }

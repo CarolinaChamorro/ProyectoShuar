@@ -1,0 +1,50 @@
+<form (ngSubmit)="addData()" class="container">
+    <div class="form-group " style="margin-right: 50%;">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="productos.nombre">
+      </div>
+    <div class="form-group" style="margin-right: 50%;">
+      <label for="name">Detalle</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="productos.detalle">
+    </div>
+    <div class="form-group" style="margin-right: 50%;">
+        <label for="name">Precio</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="productos.precio">
+      </div>
+    <div class="form-group" style="margin-right: 50%;">
+        <label for="name">Foto</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="productos.foto">
+      </div>
+      
+      <br>
+    <button class="btn btn-dark btn-sm mt-4">Registrar</button>
+  </form>
+ <div class="container">
+  <div *ngFor="let producto of producto;let i=index">
+    <div *ngIf="producto.asociado_id==asociadoData">
+      <table class="table">
+        <thead>
+          <tr>
+           <th scope="col">N°</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Detalle</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+           <td scope="row">{{i+1}}</td>
+            <td scope="row">{{producto.nombre}}</td>
+            <td scope="row">{{producto.detalle}}</td>
+            <td scope="row">{{producto.precio}}</td>
+            <td scope="row">{{producto.foto}}</td>
+            <th><img src='http://127.0.0.1:8000/storage/{{producto.foto}}' alt=""></th>
+            <td><button class="btn btn-danger mr-2" (click)="deleteData(producto.id)">Eliminar</button>
+              <button class="btn btn-primary ml-2" routerLink="edit/{{producto.id}}">Editar</button></td> 
+          </tbody>
+        </table>
+        </div>
+      </div>
+  
+ </div>

@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<br>
+<h1 class="text-center" style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Editar perfil cliente</h1>
+<div class="container">
+    <form (ngSubmit)="updateCliente()">
+        <div class="form-group" style="margin-right: 50%;">
+          <label for="cedula">Cédula</label>
+          <input type="text" name="cedula" class="form-control" [(ngModel)]="clientes.cedula">
+        </div>
+        <div class="form-group" style="margin-right: 50%;">
+          <label for="telefono">Teléfono</label>
+          <input type="text" name="telefono" class="form-control" [(ngModel)]="clientes.telefono">
+        </div>
+        <div class="form-group" style="margin-right: 50%;">
+          <label for="direccion">Dirección</label>
+          <input type="text" name="direccion" class="form-control" [(ngModel)]="clientes.direccion">
+        </div>
+        <div class="form-group" style="margin-right: 50%;">
+          <label for="casa">Número de casa</label>
+          <input type="text" name="casa" class="form-control" [(ngModel)]="clientes.numero_casa">
+        </div>
+        <button class="btn btn-dark mt-4 mr-2">Actualizar</button>
+        <button class="btn btn-danger mt-4 ml-2" routerLink="/perfil/cliente">Regresar</button>
+      </form>
+</div>

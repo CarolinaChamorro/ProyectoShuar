@@ -37,26 +37,30 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //User
 Route::get('/users',[UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 //Asociado
 Route::get('/asociado',[AsociadoController::class, 'index']);
 Route::post('/asociado/create', [AsociadoController::class, 'store']);
-Route::get('/asociado/{id}', [AsociadoController::class, 'show']);
-Route::put('/asociado/{id}',[AsociadoController::class, 'update']);
+Route::get('/asociado/{id}', [AsociadoController::class, 'edit']);
+Route::post('/asociado/{id}',[AsociadoController::class, 'update']);
 Route::delete('/asociado/{id}', [AsociadoController::class, 'destroy']);
 
 //cliente
 Route::get('/cliente',[ClienteController::class, 'index']);
 Route::post('/cliente/create', [ClienteController::class, 'store']);
-Route::get('/cliente/{id}', [ClienteController::class, 'show']);
+Route::get('/cliente/{id}', [ClienteController::class, 'edit']);
+Route::get('/cliente/perfil/{id}', [ClienteController::class, 'show']);
+Route::get('/cliente/mostrar/{id}', [ClienteController::class, 'mostrar']);
 Route::put('/cliente/{id}',[ClienteController::class, 'update']);
 Route::delete('/cliente/{id}', [ClienteController::class, 'destroy']);
+Route::get('/rol',[ClienteController::class, 'rol']);
 
 //Conductor
 Route::get('/conductor',[ConductorController::class, 'index']);
 Route::post('/conductor/create', [ConductorController::class, 'store']);
-Route::get('/conductor/{id}', [ConductorController::class, 'show']);
+Route::get('/conductor/{id}', [ConductorController::class, 'edit']);
 Route::put('/conductor/{id}',[ConductorController::class, 'update']);
 Route::delete('/conductor/{id}', [ConductorController::class, 'destroy']);
 
@@ -67,6 +71,9 @@ Route::post('/detalle/factura/create', [DetalleFacturaController::class, 'store'
 Route::get('/detalle/factura/{id}', [DetalleFacturaController::class, 'show']);
 Route::put('/detalle/factura/{id}',[DetalleFacturaController::class, 'update']);
 Route::delete('/detalle/factura/{id}', [DetalleFacturaController::class, 'destroy']);
+
+//DetallePedido
+Route::get('/detalle/pedido/{id}', [DetalleFacturaController::class, 'getDetallesPedido']);
 
 //DetalleRuta
 // Route::get('/detalle/ruta',[DetalleRutaController::class, 'index']);
@@ -93,7 +100,7 @@ Route::delete('/factura/{id}', [FacturaController::class, 'destroy']);
 Route::get('/producto',[ProductoController::class, 'index']);
 Route::post('/producto/create', [ProductoController::class, 'store']);
 Route::get('/producto/{id}', [ProductoController::class, 'edit']);
-Route::put('/producto/{id}',[ProductoController::class, 'update']);
+Route::post('/producto/{id}',[ProductoController::class, 'update']);
 Route::delete('/producto/{id}', [ProductoController::class, 'destroy']);
 
 //Servicio
@@ -114,5 +121,5 @@ Route::delete('/tipo/vehiculo/{id}', [TipoVehiculoController::class, 'destroy'])
 Route::get('/vehiculo',[VehiculoController::class, 'index']);
 Route::post('/vehiculo/create', [VehiculoController::class, 'store']);
 Route::get('/vehiculo/{id}', [VehiculoController::class, 'edit']);
-Route::put('/vehiculo/{id}',[VehiculoController::class, 'update']);
+Route::post('/vehiculo/{id}',[VehiculoController::class, 'update']);
 Route::delete('/vehiculo/{id}', [VehiculoController::class, 'destroy']);

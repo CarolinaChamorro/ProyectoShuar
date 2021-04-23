@@ -70,7 +70,8 @@ class ConductorController extends Controller
      */
     public function edit($id)
     {
-       //
+       $conductor=Conductor::find($id);
+       return $conductor;
     }
 
     /**

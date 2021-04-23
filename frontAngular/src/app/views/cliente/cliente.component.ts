@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cliente} from 'src/app/models/cliente.interface';
 import { ClienteService} from 'src/app/services/cliente.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cliente',
@@ -23,7 +24,7 @@ export class ClienteComponent implements OnInit {
     user_id: new FormControl(localStorage.getItem('user_id'))
   })
   
-  constructor(private api:ClienteService, private router:Router) { }
+  constructor(private api:ClienteService, private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     
@@ -35,6 +36,10 @@ export class ClienteComponent implements OnInit {
       localStorage.setItem("cliente_id",dataCliente['data']['id'])
       this.router.navigate(['login'])
       console.log(data);
+    },err => {
+      this.toastr.warning('Intentalo más tarde', 'Error de servidor', {
+        positionClass: 'toast-bottom-left'
+      })
     })
   }
 

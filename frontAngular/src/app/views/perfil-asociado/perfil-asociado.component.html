@@ -25,11 +25,7 @@
             </div>
             <div class="card-body text-center">
                 <div class="thumbnail" style="align-content: center">
-                    {{asociado.foto_asociado}}
-                    <!-- <a href="/imagenes/asociados/{{foto_asociado}}">
-                        <img src="/imagenes/asociados/{{foto_asociado}}" name="foto_asociado" height="150" width="150" class="rounded-circle"
-                            asp-append-version="true" />
-                    </a> -->
+                    <img src='http://127.0.0.1:8000/storage/{{asociado.foto_asociado}}' alt="">
                 </div>
                 <div class="text-primary">
                     Rise/Ruc: {{asociado.num_identificacion}}
@@ -46,6 +42,7 @@
                 <div class=" text-primary">
                    Zona: {{asociado.zona}}
                 </div>
+                <button class="btn btn-primary" routerLink="edit/{{asociado.id}}">Editar Empresa</button>
             </div>
         </div>
         

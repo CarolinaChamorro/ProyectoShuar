@@ -19,8 +19,8 @@ class CreateDetalleFacturasTable extends Migration
             $table->string('estado');
             $table->timestamps();
             //foreign keys
-            $table->unsignedBigInteger('factura_id');
-            $table->foreign('factura_id')->references('id')->on('facturas')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');

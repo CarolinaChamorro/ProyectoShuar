@@ -1,5 +1,5 @@
 <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <div class="w3-bar w3-white  w3-padding w3-card">
       <a class="w3-bar-item w3-button"><b>Proyecto</b>Shuar</a>
 
       <!-- Float links to the right. Hide them on small screens -->
@@ -7,32 +7,32 @@
         <div *ngFor="let usuario of users">
           <div *ngFor="let asociado of asociados">
             <div *ngIf="usuarioId==usuario.id && asociadoId==asociado.id && usuario.id===asociado.user_id">
+              <a routerLink='/catalogo/asociado'  class="w3-bar-item w3-button">Catálogo de productos</a>
               <a routerLink='/producto' (click)="Producto()" class="w3-bar-item w3-button">Productos</a>
-              <!-- <a routerLink='/'  class="w3-bar-item w3-button">Catálogo de productos</a>
-              <a routerLink='/'  class="w3-bar-item w3-button">Editar perfil</a> -->
+              <a routerLink='/pedidos/asociado' class="w3-bar-item w3-button">Pedido</a>
+              <a routerLink='/perfil/asociado'  class="w3-bar-item w3-button">Perfil</a>
               <a routerLink='/home' (click)="onLogaut()" class="w3-bar-item w3-button">Cerrar sesión</a>
             </div>
           </div>
           <div *ngFor="let conductor of conductores">
             <div *ngIf="usuario.id===conductor.user_id && usuarioId==usuario.id && conductorId==conductor.id">
-              <a routerLink='/perfil/vehiculo' (click)="Vehiculo()" class="w3-bar-item w3-button">Vehículo</a>
-              <!-- <a routerLink='/' class="w3-bar-item w3-button">Editar perfil</a> -->
               <a routerLink='/home' (click)="onLogaut()" class="w3-bar-item w3-button">Cerrar sesión</a>
             </div>
           </div>
           <div *ngFor="let cliente of clientes">
             <div *ngIf="usuario.id===cliente.user_id && usuarioId==usuario.id && clienteId==cliente.id">
-              <!-- <a routerLink='/' class="w3-bar-item w3-button">Catálogo de productos</a>
-                <a routerLink='/'  class="w3-bar-item w3-button">Perfil</a>
-              <a routerLink='/' class="w3-bar-item w3-button">Carrito de compras</a> -->
+              <a routerLink='/catalogo/cliente' class="w3-bar-item w3-button">Catálogo de productos</a>
+              <a routerLink='/carrito' class="w3-bar-item w3-button">Carrito de compras</a>
               <a routerLink='/factura' (click)="Factura()" class="w3-bar-item w3-button">Pedido</a>
+                <a routerLink='/perfil/cliente'  class="w3-bar-item w3-button">Perfil</a>
               <a routerLink='/home' (click)="onLogaut()" class="w3-bar-item w3-button">Cerrar sesión</a>
             </div>
           </div>
         
         </div>
       </div>
-      <div class="w3-right w3-hide-small" *ngIf="usuarioId ==undefined">
+      <div class="w3-right w3-hide-small" *ngIf="usuarioId == undefined">
+        <a routerLink='/' class="w3-bar-item w3-button">Home</a>
         <a routerLink='/login' class="w3-bar-item w3-button">Login</a>
         <a routerLink='/registrarse' class="w3-bar-item w3-button">Registro</a>
       </div>

@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+    <div class="container">
+      <div class="card" >
+          <div class="card-header" *ngFor="let item of pedidoUserProducto">
+            <h5 class="card-title">
+              Pedido de {{item.name}} 
+            </h5>
+          </div>
+          <div class="card-body">
+            <div style="margin: 1cm;" *ngFor="let item of pedidoUserProducto">
+              <p class="card-title"> Orden a nombre de {{item.name}} </p>
+              <p class="card-text"> Cedula: {{item.cedula}} </p>
+              <p class="card-text">Correo: {{item.email}} </p>
+              <p class="card-text">Teléfono: {{item.telefono}} </p>
+              <p class="card-text">Dirección: {{item.direccion}}</p>
+            </div>
+          </div>
+          <div class="card-footer">
+              <h5 class="card-body">Detalles Pedidos</h5>
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Productos</th>
+                        <th scope="col">Precio U.</th>
+                        <th scope="col">Subtotal</th>
+                      </tr> 
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let i of pedidoAgregado;let j = index" >
+                        <th scope="row">{{j+1}}</th>
+                        <td>{{i.cantidad}} </td>
+                        <td>{{i.nombre}}</td>
+                        <td>{{i.precio}}</td>
+                        <td>$ {{subtotal[j]}}</td>
+                      </tr>
+                      <tr>
+                        <th colspan="3"></th>
+                        <th >Total</th>
+                        <td>$ {{total}} </td>
+                      </tr>
+                    </tbody>
+              </table> 
+              <button class="btn btn-danger ml-2" routerLink="/pedidos/asociado">Regresar</button>
+               
+          </div>
+        </div>
+  </div>
+ 
+

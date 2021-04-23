@@ -19,7 +19,7 @@
                             <h3 class="text-info">{{user.email}}</h3>
                         </div>
                     </div>
-                    <!-- Datos de asociado -->
+                    <!-- Datos de conductor -->
                     <div class="card">
                         <div class="card-header text-center">
                             <h3 class="text-info">Perfil</h3>
@@ -31,6 +31,7 @@
                             <div class="text-primary">
                                 Tipo de licencia: {{conductor.tipo_licencia}}
                             </div>
+                            <button class="btn btn-primary" routerLink="/conductor/edit/{{conductor.id}}">Editar Perfil</button>
                         </div>
                     </div>
                     <!-- Datos vehiculo -->
@@ -40,11 +41,8 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="thumbnail" style="align-content: center">
-                                {{vehiculo.foto_vehiculo}}
-                                <!-- <a href="/imagenes/asociados/{{foto_asociado}}">
-                                    <img src="/imagenes/asociados/{{foto_asociado}}" name="foto_asociado" height="150" width="150" class="rounded-circle"
-                                        asp-append-version="true" />
-                                </a> -->
+                              
+                                <img src='http://127.0.0.1:8000/storage/{{vehiculo.foto_vehiculo}}' alt="">
                             </div>
                             <div class="text-primary">
                                Número de placa: {{vehiculo.num_placa}}
@@ -61,6 +59,7 @@
                             <div class="text-primary">
                                Color: {{vehiculo.color}}
                             </div>
+                            <button class="btn btn-primary" routerLink="edit/{{vehiculo.id}}">Editar vehiculo</button>
                         </div>
                     </div>
                 </div>

@@ -383,3 +383,10 @@ a:hover {
         margin-bottom: 50px !important
     }
 }
+
+img{
+  margin-top: 10px;;
+  width: 300px;
+  margin-bottom: 5px;
+  border-radius: 450px;
+}

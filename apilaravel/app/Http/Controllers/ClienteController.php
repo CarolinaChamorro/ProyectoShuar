@@ -58,10 +58,28 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
+        $cliente=Cliente::where("clientes.user_id", "=", $id)
+        ->select("users.name", "users.email", "clientes.cedula", "clientes.direccion", "clientes.telefono")
+        ->join("users", "users.id", "=", "clientes.user_id")
+        ->get();
+        return $cliente;
+    }
+
+    public function mostrar($id){
         $cliente = Cliente::findOrFail($id);
         return new ClienteResource($cliente);
     }
 
+    //Id asociado, 
+    public function rol()
+    {
+        $cliente = Cliente::select("users.id", "users.name", "users.email", "clientes.cedula", "clientes.telefono", "clientes.direccion", "clientes.numero_casa", "detalle_facturas.cliente_id","detalle_facturas.estado", "productos.asociado_id")
+        ->join("users", "users.id", "=", "clientes.user_id")
+        ->join("detalle_facturas", "detalle_facturas.cliente_id", "=", "clientes.id")
+        ->join("productos","productos.id", "=", "detalle_facturas.producto_id")
+        ->get();
+        return $cliente;
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -70,7 +88,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return new ClienteResource($cliente);
     }
 
     /**

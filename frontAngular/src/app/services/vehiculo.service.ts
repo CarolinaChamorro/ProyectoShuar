@@ -16,9 +16,8 @@ export class VehiculoService {
 
   constructor( private httpClient:HttpClient) { }
  
-  crearVehiculo(form:Vehiculo):Observable<Vehiculo>{
-    let url = `${this._Api}/vehiculo/create`
-    return this.httpClient.post<Vehiculo>(url, form)
+  crearVehiculo(data:any){
+    return this.httpClient.post(`${this._Api}/vehiculo/create`, data)
   }
 
   getTipoVehiculo(): Observable<any>{
@@ -43,8 +42,8 @@ export class VehiculoService {
     return this.httpClient.delete(`http://127.0.0.1:8000/api/vehiculo/${id}`)
 
   }
-  updateVehiculoData(id: string, data: Vehiculos) {
-    return this.httpClient.put(`http://127.0.0.1:8000/api/vehiculo/${id}`, data);
+  updateVehiculoData(id: string, data: any) {
+    return this.httpClient.post(`http://127.0.0.1:8000/api/vehiculo/${id}`, data);
   }
   getConductor(){
     return this.httpClient.get(this.URL1)

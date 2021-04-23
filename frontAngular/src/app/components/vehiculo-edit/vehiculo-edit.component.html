@@ -1,30 +1,37 @@
 <app-navbar></app-navbar>
-<br><br><br><br>
-<form (ngSubmit)="updateVehiculo()">
-    <div class="form-group">
+<br>
+<h1 class="text-center" style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Editar vehículo</h1>
+<div class="container mb-4">
+  <form (ngSubmit)="updateVehiculo()">
+    <div class="form-group" style="margin-right: 50%;">
       <label for="placa">Placa</label>
       <input type="text" name="placa" class="form-control" [(ngModel)]="vehiculos.num_placa">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-right: 50%;">
         <label for="model">Modelo</label>
         <input type="text" name="model" class="form-control" [(ngModel)]="vehiculos.modelo">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-right: 50%;">
         <label for="marca">Marca</label>
         <input type="text" name="marca" class="form-control" [(ngModel)]="vehiculos.marca">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-right: 50%;">
         <label for="name">Color</label>
         <input type="text" name="name" class="form-control" [(ngModel)]="vehiculos.color">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-right: 50%;">
         <label for="color">Matricula</label>
         <input type="text" name="color" class="form-control" [(ngModel)]="vehiculos.num_matricula">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-right: 50%;">
         <label for="foto">Foto</label>
-        <input type="text" name="foto" class="form-control" [(ngModel)]="vehiculos.foto_vehiculo">
+        <input type="file" name="foto" (change)="capturarFile($event)" class="form-control" [(ngModel)]="vehiculos.foto_vehiculo">
+      <img src='http://127.0.0.1:8000/storage/{{vehiculos.foto_vehiculo}}' alt="">
       </div>
-    <button class="btn btn-dark btn-sm mt-4">Actualizar</button>
-    <td><button class="btn btn-danger" routerLink="/vehiculo">regresar</button></td>
+      <div *ngIf = "previsualizacion">
+        <img [src] = "previsualizacion" alt = "">
+      </div>
+    <button class="btn btn-dark mt-4 mr-2">Actualizar</button>
+    <button class="btn btn-danger mt-4 ml-2" routerLink="/perfil/conductor">Regresar</button>
   </form>
+</div>

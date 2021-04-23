@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Http\Resources\ProductoResource;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -37,16 +38,25 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        $file=$request->file('archivo');
+        $ruta=$file->storeAs('img', $file->getClientOriginalName(),'public');
+        $dataProducto=json_decode($request->producto,true);
         $producto= new Producto();
-        $producto->nombre=$request->nombre;
-        $producto->detalle=$request->detalle;
-        $producto->precio=$request->precio;
-        $producto->foto=$request->foto;
-        $producto->asociado_id=$request->asociado_id;
+        $producto->nombre=$dataProducto['nombre'];
+        $producto->detalle=$dataProducto['detalle'];
+        $producto->precio=$dataProducto['precio'];
+        $producto->foto=$ruta;
+        $producto->asociado_id=$dataProducto['asociado_id'];
 
-        if($producto->save()){
-            return new ProductoResource($producto);
-        }
+        $producto->save();
+        return response()->json([
+            'data'=> $producto,
+            'msg' =>[
+                'summary'=>'Se creo correctamente',
+                'detail'=> 'esta bien'
+            ]
+            ],201);
+        
     }
 
     /**
@@ -83,12 +93,17 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $producto = Producto::findOrFail($id);
-        $producto->nombre=$request->nombre;
-        $producto->detalle=$request->detalle;
-        $producto->precio=$request->precio;
-        $producto->foto=$request->foto;
-        $producto->asociado_id=$request->asociado_id;
-
+        $dataProducto=json_decode($request->producto,true);
+        if($producto->foto != $dataProducto['foto']){
+            Storage::delete($producto->foto);
+            $file=$request->file('archivo');
+            $ruta=$file->storeAs('img',time() .  $file->getClientOriginalName(),'public');
+            $producto->foto=$ruta;
+        }
+        $producto->nombre=$dataProducto['nombre'];
+        $producto->detalle=$dataProducto['detalle'];
+        $producto->precio=$dataProducto['precio'];
+        $producto->asociado_id=$dataProducto['asociado_id'];
         if($producto->save()){
             return new ProductoResource($producto);
         }
@@ -103,6 +118,7 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto = Producto::findOrFail($id);
+        Storage::delete($producto->foto);
         if($producto->delete()){
             return new ProductoResource($producto);
         }

@@ -26,7 +26,7 @@ class ProductoFactory extends Factory
             'detalle'=>$this->faker->sentence($nbWords = 3, $variableNbWords = true),
             'precio'=>$this->faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
             'foto'=>$this->faker->imageUrl($width = 640, $height = 480),
-            'asociado_id' => random_int(1, 5),
+            'asociado_id' => random_int(1, 3),
         ];
     }
 }

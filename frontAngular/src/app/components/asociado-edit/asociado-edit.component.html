@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<br>
+<h1 class="text-center" style="margin-top: 50px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:xx-large;">Editar perfil asociado</h1>
+<div class="container mb-4">
+    <form (ngSubmit)="updateAsociado()">
+        <div class="form-group" style="margin-right: 50%;">
+          <label for="placa">Ruc</label>
+          <input type="text" name="placa" class="form-control" [(ngModel)]="asociados.num_identificacion">
+        </div>
+        <div class="form-group" style="margin-right: 50%;">
+            <label for="model">Nombre E.</label>
+            <input type="text" name="model" class="form-control" [(ngModel)]="asociados.nombre_empresa">
+          </div>
+          <div class="form-group" style="margin-right: 50%;">
+            <label for="marca">Actividad</label>
+            <input type="text" name="marca" class="form-control" [(ngModel)]="asociados.actividad_comercial">
+          </div>
+          <div class="form-group" style="margin-right: 50%;">
+            <label for="name">Direccion</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="asociados.direccion">
+          </div>
+          <div class="form-group" style="margin-right: 50%;">
+            <label for="color" >Zona</label>
+            <input type="text" name="color" class="form-control" [(ngModel)]="asociados.zona">
+          </div>
+          <div class="form-group" style="margin-right: 50%;">
+            <label for="foto" >Foto</label>
+            <input type="file" (change)="capturarFile($event)" name="foto" class="form-control" [(ngModel)]="asociados.foto_asociado">
+          </div>
+          <div *ngIf = "previsualizacion">
+            <img [src] = "previsualizacion" alt = "">
+          </div>
+          <img src='http://127.0.0.1:8000/storage/{{asociados.foto_asociado}}' alt="">
+          <br>
+        <button class="btn btn-dark mt-4 mr-2">Actualizar</button>
+        <button class="btn btn-danger mt-4 ml-2" routerLink="/perfil/asociado">Regresar</button>
+      </form>
+</div>
