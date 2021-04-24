@@ -1,140 +1,338 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cafetería</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
 <body>
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <app-navbar></app-navbar>
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    
-    <!-- <a href="/home" class="w3-bar-item w3-button"><b>Proyecto</b>Shuar</a> -->
-    <!-- Float links to the right. Hide them on small screens -->
-    <!-- <div class="w3-right w3-hide-small">
-      <a routerLink='/login' class="w3-bar-item w3-button">Login</a>
-    <a routerLink='/registrarse' class="w3-bar-item w3-button">Registro</a>
-    </div> -->
-  </div>
-</div>
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="../../../assets/encabezado.jpg" alt="Proyecto-Shuar" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-deep-purple w3-opacity-min"><b>Proyecto</b></span> <span class="w3-hide-small w3-text-black">SHUAR</span></h1>
-  </div>
-</header>
-
-<!-- Misión Section -->
- <div class="w3-row w3-padding-64" id="about">
-  <div class="w3-col m6 w3-padding-large w3-hide-small">
-   <img src="../../../assets/mision.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-  </div>
-
-  <div class="w3-col m6 w3-padding-large">
-    <h1 class="w3-center">Misión</h1><br>
-    <p class="w3-large">Nuestra misión es satisfacer las necesidades de nuestros clientes, mediante un sevicio de calidad y comodidad, que se ajusten a las necesidades de nuestros clientes, generando asi economía,desarrollo y crecimiento para el sector productivo, para empleados y accionistas.
-      Respondemos a la confianza depositada en nosotros.</p>
-    <p class="w3-large w3-text-grey w3-hide-medium">Cooperamos en el bien común de los miembros de nuestra organización.</p>
-  </div>
-</div>
-
-
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
-  <!-- Visión Section -->
-    <div class="w3-row w3-padding-64" id="menu">
-      <div class="w3-col l6 w3-padding-large">
-        <h1 class="w3-center">Visión</h1><br>
-        <p class="w3-large">Ser la empresa líder en servicios con calidad de punta tanto en servicios de transporte 
-          y distribución de productos, la conservación y procesamiento de estos, que generen valor agregado al cliente y se conviertan en alternativas para el desarrollo económico, 
-          social y cultural de clientes, empleados y accionistas.</p>
-      </div>
-      
-      <div class="w3-col l6 w3-padding-large">
-        <img src="../../../assets/vision.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
-      </div>
-    </div>
   
-
-  <!-- Photos Grid-->
-  
-  <!-- Team Section -->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Equipo técnico</h3>
-  </div>
-
-  <div class="w3-row-padding">
-    <!-- <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/w3images/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      </div>
-    </div> -->
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="../../../assets/steven.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Steven Rocha</b></p>
-        <p>Desarrollador del API en laravel, frontend en Angular y creación de componentes.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-      <img src="../../../assets/caro.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Carolina Chamorro</b></p>
-        <p>Desarrolladora del API en laravel y frontend en Angular y creación de módulos.</p>
-      </div>
-    </div>
-  </div>
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="../../../assets/jennifer.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Jennifer Herrera</b></p>
-        <p>Desarrolladora de frontend en Angular y gestión de documentación.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="../../../assets/kevin.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Kevin Pillajo</b></p>
-        <p>Desarrollador de Laravel en el backend y gestión de documentación.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-      <img src="../../../assets/anthony.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Anthony Guamán</b></p>
-        <p>Desarrollador de frontEnd en Angular y gestión de diagramación en la documentación.</p>
-      </div>
-    </div>
-  </div>
-
-<!-- End page content -->
-</div>
-<!-- Footer -->
-<footer class="w3-center w3-deep-purple w3-padding-16">
-    <div class="content-foo">
-        <h4>Ubicación</h4>
-        <p>Sector el Inca calle Pio Valdiviezo E4-115 y Pedro Veloz(frente al parque Pio Valdiviezo)
-          <br>
-          Celular: 0983509621
-          <br>
-          Email: klever.guerrero@point-technical.com</p>
-    </div>
-    <div class="content-foo">
-      <h4>Horarios</h4>
-      <p>Lunes - Viernes: 8am - 7pm
-        <br>
-        Sabado: 8am - 5pm
-        <br>
-        Domingo: 8am - 5pm
-      </p>
-  </div>
-<h2 class="titulo-final">&copy; 2021 Point Technical</h2>
-</footer>
 </body>
-</html>
+</html> 
+
+<!--/ Intro Skew Star /-->
+<div id="home" class="intro route bg-image" style="background-image: url(../../../assets/img/fondo.jpg)">
+    <div class="overlay-itro"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <!--<p class="display-6 color-d">Hello, world!</p>-->
+          <h1 class="intro-title mb-4">Shuar mejora tu calidad de vida</h1>
+          <p class="intro-subtitle text-white"><span class="text-slider-items">Disfruta del cambio, Disfruta de la comodidad, Mejores resultados, Tu mejor opción</span><strong class="text-slider"></strong></p>
+          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Intro Skew End /-->
+<!-- Información -->
+<section id="mision" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="imagen1">
+                                <figure>
+                                    <img class="pl-1 img-fluid imagen-dentro" src="../../../assets/img/ca2.jpg" alt="MISIÓN">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                       Misión
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                  Nuestra misión es satisfacer las necesidades de nuestros clientes, mediante la comercializacion de productos y servicios de optima calidad, que se ajusten a las necesidades del mismo, generando asi economía,desarrollo y crecimiento para el sector productivo, para empleados y accionistas. Respondemos a la confianza depositada en nosotros. Cooperamos en el bien común de los miembros de nuestra organización.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!--Seccion imagen azul-->
+<div class="section-counter paralax-mf bg-image" style="background-image: url(../../../assets/img/counters-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+      <div class="row text-center">
+      </div>
+    </div>
+  </div>
+  <section id="vision" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        Visión
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                  Ser la empresa líder en servicios con calidad de punta tanto en servicios de transporte y distribución de productos, la conservación y procesamiento de estos, que generen valor agregado al cliente y se conviertan en alternativas para el desarrollo económico, social y cultural de clientes, empleados y accionistas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="imagen1">
+                                <figure>
+                                    <img class="pl-1 img-fluid imagen-dentro"  src="../../../assets/img/familia.jpg" alt="VISIÓN">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+   <!--/ Section Services Star/-->
+   <section id="service" class="services-mf route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Administración
+            </h3>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle"><i class="ion-monitor"></i></span>
+            </div>
+            <div class="service-content">
+              <h2 class="s-title">Servicios</h2>
+              <p class="s-description text-center">
+               Nuestros servicios al alcanze de tus manos, solicitanos desde cualquier parte donde te encuentres, a cualquier hora nos encontramos disponibles para servirte.
+               Trasportarse y alimentarse es una necesidad y está es la forma más innovadora de hacerlo.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle"><i class="ion-code-working"></i></span>
+            </div>
+            <div class="service-content">
+              <h2 class="s-title">Asociados</h2>
+              <p class="s-description text-center">
+                Todos formamos un equipo, nosotros con los mejores, encontraras todas las cadenas que puedas imaginar a tu disposición para satisfacer tu necesidad y todo desde la puerta de tu Hogar.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
+            </div>
+            <div class="service-content">
+              <h2 class="s-title">Productos</h2>
+              <p class="s-description text-center">
+                Productos de todo tipo,principalmente para satisfacer a éste mercado en específico, personas que cuenten con tiempo limitado y quiera deleitarse con alimentos saludables, balanceados, diversos, etc.
+              </p>
+            </div>
+          </div>
+        </div> 
+    
+        <!--/ Section Portfolio Star /-->
+  <section id="work" class="portfolio-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Portafolio
+            </h3>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="work-box">
+            
+              <div class="work-img">
+                <img src="../../../assets/img/ca2.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Transporte rápido y seguro</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="../../../assets/img/work-2.jpg" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="../../../assets/img/comidaf.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Comida desde cualquier parte a domicilio</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="../../../assets/img/work-3.jpg" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="../../../assets/img/work-3.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Tus productos a tiempo</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="../../../assets/img/work-4.jpg" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="../../../assets/img/work-4.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Sea a tu trabajo o casa</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="../../../assets/img/work-5.jpg" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="../../../assets/img/FarCamilaBenef.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">La medicina a tu alcanze</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="../../../assets/img/work-6.jpg" data-lightbox="gallery-mf">
+              <div class="work-img">
+                <img src="../../../assets/img/work-6.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Fácil de acceder desde tu dispositivo</h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <span class="ion-ios-plus-outline"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Section Portfolio End /-->
+  <!--/ Section Contact-Footer Star /-->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(../../../assets/img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="overlay-mf"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="contact-mf">
+            <div id="contact" class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="title-box-2">
+                    <h5 class="title-left">Localización</h5>
+                  </div>
+                  <div class="">
+                    <p> Estamos ubicados en el Sector del Inca calle Pio Valdiviezo E4-115 y Pedro Veloz(frente al parque Pio Valdiviezo) 
+                    Numero de contacto  0983509621</p>
+                    <p>Para mayor informacion de nuestros productos y servicios: <br>
+                      <a href="mailto:klever.guerrero@point-technical.com"> Click para escribirnos un correo.</a></p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="work-box">
+                      <div class="m-2 p-2">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.9014881051328!2d-78.48042565910413!3d-0.1589031054777689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59aa2f46d927d%3A0x6a6a9a12c133cc67!2sPescados%20de%20la%20Maldonado!5e0!3m2!1ses-419!2sec!4v1601061014996!5m2!1ses-419!2sec" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <p class="copyright">&copy; Copyright <strong>Point Tecnical</strong>. 2021></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Section Contact-footer End /-->
