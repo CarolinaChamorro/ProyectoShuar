@@ -10,4 +10,6 @@ export interface Pedidosadmin {
     cliente_id : bigint,
     producto_id: bigint,
     asociado_id: bigint,
+    updated_at:any,
+    created_at:any
 }

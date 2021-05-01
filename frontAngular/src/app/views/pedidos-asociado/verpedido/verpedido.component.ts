@@ -42,7 +42,7 @@ pedidoCliente:string;
           this.api.detallesPedidoAsociado(this.pedidoCliente).subscribe(data => {
             console.log(data)
             for (let j = 0; j < data.length; j++) {
-              if (data[j].estado==="Realizado" && data[j].asociado_id == this.asociado) {
+              if (data[j].estado ==="Realizado" && data[j].asociado_id == this.asociado) {
                 this.detallesPedido = data;
                 this.pedidoAgregado.push(data[j])
                 console.log(this.detallesPedido)
@@ -81,7 +81,10 @@ pedidoCliente:string;
   
   confirmarPedido() {
     for (let index = 0; index < this.detallesPedido.length; index++) {
-      this.updateStatus(this.detallesPedido[index].id, this.pedido)
+      if(this.detallesPedido[index].estado === 'Realizado'){
+
+        this.updateStatus(this.detallesPedido[index].id, this.pedido)
+      }
     }
     this.router.navigate(['pedidos/asociado'])
     this.toastr.success('Pedido enviado', 'Pedido', {

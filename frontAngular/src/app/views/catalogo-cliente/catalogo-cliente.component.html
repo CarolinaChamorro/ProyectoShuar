@@ -9,7 +9,7 @@
         <h2>Por asociados</h2>
         <hr>
         <div *ngFor="let item of asociados">
-            <div class="list-group">
+            <div class="list-group" *ngIf="item.rol === 'asociado'">
                 <button type="button" id="miBoton" class="list-group-item list-group-item-action" class="list-group-item"
                     (click)="asociado(item.id)">
                     {{item.nombre_empresa}}
@@ -48,7 +48,7 @@
                                         <img src='http://127.0.0.1:8000/storage/{{key.foto}}' alt="">
                                     </div>
                                     <div class="col-8">
-                                        <div class="card-body">
+                                        <div class="card-body" style="padding: 4rem;">
                                             <h5 class="card-title" style="font-weight: bold;font-size:large">
                                                 {{key.nombre}}
                                             </h5>

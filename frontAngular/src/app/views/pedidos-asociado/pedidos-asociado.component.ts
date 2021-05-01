@@ -25,7 +25,7 @@ export class PedidosAsociadoComponent implements OnInit {
     this.asociado=localStorage.getItem('asociado_id');
     this.api.getPedidosUsers().subscribe(data=>{
       for (let index = 0; index < data.length; index++) {
-        if (data[index].estado === "Realizado" && data[index].asociado_id==this.asociado) {
+        if (data[index].estado === "Realizado" && data[index].asociado_id==this.asociado ) {
           this.pedidoRealizado.push(data[index]);
           let repetidos = {};
           this.pedidoRealizado = this.pedidoRealizado.filter(function(current) {
@@ -37,6 +37,7 @@ export class PedidosAsociadoComponent implements OnInit {
         }else{
           console.log("No hay pedidos realizados")
         }
+
         if(data[index].estado === "Enviado" && data[index].asociado_id==this.asociado){
           this.pedidoEnviado.push(data[index]);
           let repetidos = {};
@@ -45,10 +46,11 @@ export class PedidosAsociadoComponent implements OnInit {
             repetidos[current.id] = true;
             return exists;
           })
-          console.log(this.pedidoEnviado)
+          //console.log(this.pedidoEnviado)
         }else{
           console.log("No hay pedidos enviados")
         }
+        
       }
         
       
@@ -65,3 +67,8 @@ export class PedidosAsociadoComponent implements OnInit {
   }
 
 }
+
+/*
+Hay que revisar los pedidos y colocar fecha porque no se distingue cuales 
+pedidos realizados fueron primero y cuales pedidos enviados estan después
+*/ 

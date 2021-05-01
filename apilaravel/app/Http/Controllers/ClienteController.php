@@ -73,7 +73,7 @@ class ClienteController extends Controller
     //Id asociado, 
     public function rol()
     {
-        $cliente = Cliente::select("users.id", "users.name", "users.email", "clientes.cedula", "clientes.telefono", "clientes.direccion", "clientes.numero_casa", "detalle_facturas.cliente_id","detalle_facturas.estado", "productos.asociado_id")
+        $cliente = Cliente::select("users.id", "users.name", "users.email", "clientes.cedula", "clientes.telefono", "clientes.direccion", "clientes.numero_casa", "detalle_facturas.cliente_id","detalle_facturas.estado","detalle_facturas.created_at","detalle_facturas.updated_at","productos.asociado_id")
         ->join("users", "users.id", "=", "clientes.user_id")
         ->join("detalle_facturas", "detalle_facturas.cliente_id", "=", "clientes.id")
         ->join("productos","productos.id", "=", "detalle_facturas.producto_id")

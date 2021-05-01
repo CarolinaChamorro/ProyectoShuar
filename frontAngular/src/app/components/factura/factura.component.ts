@@ -55,7 +55,7 @@ export class FacturaComponent implements OnInit {
     })
     this.api.detallesPedido(pedidoProductos).subscribe(data => {
       for (let j = 0; j < data.length; j++) {
-        if (data[j].estado==="Agregado" ) {
+        if (data[j].estado ==="Agregado") {
           this.detallesPedido = data;
           this.pedidoAgregado.push(data[j])
           console.log(this.detallesPedido)
@@ -99,7 +99,9 @@ export class FacturaComponent implements OnInit {
   
   confirmarPedido() {
     for (let index = 0; index < this.detallesPedido.length; index++) {
+      if(this.detallesPedido[index].estado === 'Agregado'){
       this.updateStatus(this.detallesPedido[index].id, this.pedido)
+      }
     }
     this.router.navigate(['catalogo/cliente'])
     this.toastr.success('Pedido registrado', 'Pedido', {
