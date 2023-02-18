@@ -27,6 +27,8 @@ export class FacturaComponent implements OnInit {
   valor: any;
   curDate = new Date();
 
+  
+
   //pedidoCliente
   pedidoUserProducto: Array<any> = [];
   detallesPedido: DetallePedido[] = [];
@@ -42,7 +44,10 @@ export class FacturaComponent implements OnInit {
   ngOnInit(): void {
     this.getFacturaData()
     this.facturas.num_factura = this.valor
-    this.facturas.fecha_elab = this.curDate;
+    const localDateString = this.curDate.toLocaleDateString('Es-es');
+    this.facturas.fecha_elab = localDateString;
+    console.log(this.facturas.fecha_elab);
+  
     //cambiar a cliente_id
     this.facturas.cliente_id = localStorage.getItem('cliente_id');
 
@@ -80,6 +85,7 @@ export class FacturaComponent implements OnInit {
     });
   }
   addData() {
+    console.log(this.facturas);
     this.dataService.addData(this.facturas).subscribe(res => {
       this.getFacturaData();
       this.confirmarPedido();

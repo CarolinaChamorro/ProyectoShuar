@@ -23,7 +23,7 @@ class FacturaFactory extends Factory
     {
         return [
             'num_factura'=>$this->faker->numberBetween($min = 1000000000, $max = 9000000000),
-            'fecha_elab'=>$this->faker->dateTime($max = 'now'),
+            'fecha_elab'=>$this->faker->word,
             'cliente_id' => random_int(1, 3),
         ];
     }

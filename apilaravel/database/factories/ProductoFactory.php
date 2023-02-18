@@ -24,7 +24,7 @@ class ProductoFactory extends Factory
         return [
             'nombre'=>$this->faker->word,
             'detalle'=>$this->faker->sentence($nbWords = 3, $variableNbWords = true),
-            'precio'=>$this->faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+            'precio'=>$this->faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
             'foto'=>$this->faker->imageUrl($width = 640, $height = 480),
             'asociado_id' => random_int(1, 3),
         ];
